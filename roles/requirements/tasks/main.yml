@@ -22,9 +22,10 @@
     - name: create new user with password, add to groups
       user:
         name: "{{ user_name }}"
-        password: "{{ user_pw | password_hash('sha512')}}"
+        # password: "{{ user_pw | password_hash('sha512')}}"
         groups: "sshusers, sudousers, suusers"
-        shell: /bin/bash
+        # shell: /bin/bash
+        append: yes
 
     - name: limit sudo to sudousers groups
       lineinfile:
